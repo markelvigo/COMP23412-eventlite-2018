@@ -7,4 +7,12 @@ public interface EventService {
 	public long count();
 
 	public Iterable<Event> findAll();
+	
+	public void save(Iterable<Event> e);
+	
+	public Iterable<Event> find(String name);
+	
+	public Event findOne(long id);
+
+
 }

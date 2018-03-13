@@ -17,8 +17,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 	// List the mappings/methods for which no authorisation is required.
 	// By default we allow all GETs and full access to the H2 console.
-	private static final RequestMatcher[] NO_AUTH = { new AntPathRequestMatcher("/**", "GET"),
-			new AntPathRequestMatcher("/h2-console/**") };
+	private static final RequestMatcher[] NO_AUTH = 
+		{new AntPathRequestMatcher("/**", "GET"),new AntPathRequestMatcher("/h2-console/**")};
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -37,7 +37,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 		http.antMatcher("/**").csrf().ignoringAntMatchers("/api/**", "/h2-console/**");
 
 		// Disable X-Frame-Options for the H2 console.
-		http.headers().frameOptions().disable();
+		http.headers().frameOptions().disable();		
 	}
 
 	@Autowired
